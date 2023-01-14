@@ -18,6 +18,14 @@
 		6C5BCE442973519A00B71BEC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BCE432973519A00B71BEC /* NetworkManager.swift */; };
 		6C5BCE4D29735DC500B71BEC /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C5BCE4B29735DC500B71BEC /* SplashViewController.xib */; };
 		6C5BCE4E29735DC500B71BEC /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BCE4C29735DC500B71BEC /* SplashViewController.swift */; };
+		6C5BCE5729735F1E00B71BEC /* GamesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C5BCE5529735F1E00B71BEC /* GamesViewController.xib */; };
+		6C5BCE5829735F1E00B71BEC /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BCE5629735F1E00B71BEC /* GamesViewController.swift */; };
+		6C5BCE5C297364B200B71BEC /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BCE5B297364B200B71BEC /* NSObject+Extension.swift */; };
+		6C5BCE602973650C00B71BEC /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BCE5F2973650C00B71BEC /* UITableView+Extension.swift */; };
+		6C5BCE632973657F00B71BEC /* GamesTableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BCE622973657F00B71BEC /* GamesTableViewAdapter.swift */; };
+		6C5BCE65297365B200B71BEC /* GamesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BCE64297365B200B71BEC /* GamesViewModel.swift */; };
+		6C5BCE682973668600B71BEC /* GamesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C5BCE662973668600B71BEC /* GamesCell.xib */; };
+		6C5BCE692973668600B71BEC /* GamesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BCE672973668600B71BEC /* GamesCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +42,14 @@
 		6C5BCE432973519A00B71BEC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		6C5BCE4B29735DC500B71BEC /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
 		6C5BCE4C29735DC500B71BEC /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		6C5BCE5529735F1E00B71BEC /* GamesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GamesViewController.xib; sourceTree = "<group>"; };
+		6C5BCE5629735F1E00B71BEC /* GamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewController.swift; sourceTree = "<group>"; };
+		6C5BCE5B297364B200B71BEC /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
+		6C5BCE5F2973650C00B71BEC /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		6C5BCE622973657F00B71BEC /* GamesTableViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesTableViewAdapter.swift; sourceTree = "<group>"; };
+		6C5BCE64297365B200B71BEC /* GamesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewModel.swift; sourceTree = "<group>"; };
+		6C5BCE662973668600B71BEC /* GamesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GamesCell.xib; sourceTree = "<group>"; };
+		6C5BCE672973668600B71BEC /* GamesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesCell.swift; sourceTree = "<group>"; };
 		834A4DBE13D458013F729C75 /* Pods-GamesApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GamesApp.release.xcconfig"; path = "Target Support Files/Pods-GamesApp/Pods-GamesApp.release.xcconfig"; sourceTree = "<group>"; };
 		A6CD03A18A9F2A60AB023058 /* Pods_GamesApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GamesApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -88,6 +104,7 @@
 		6C5BCE2229734AF400B71BEC /* GamesApp */ = {
 			isa = PBXGroup;
 			children = (
+				6C5BCE592973649000B71BEC /* Extensions */,
 				6C5BCE4029734F1E00B71BEC /* Networking */,
 				6C5BCE3A29734C0100B71BEC /* Modules */,
 				6C5BCE2329734AF400B71BEC /* AppDelegate.swift */,
@@ -104,6 +121,7 @@
 		6C5BCE3A29734C0100B71BEC /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				6C5BCE4F29735EC700B71BEC /* GamesModule */,
 				6C5BCE3B29734C0800B71BEC /* SplashModule */,
 			);
 			path = Modules;
@@ -125,6 +143,92 @@
 				6C5BCE432973519A00B71BEC /* NetworkManager.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		6C5BCE4F29735EC700B71BEC /* GamesModule */ = {
+			isa = PBXGroup;
+			children = (
+				6C5BCE612973656600B71BEC /* Adapter */,
+				6C5BCE5029735EE900B71BEC /* ViewController */,
+				6C5BCE5129735EEE00B71BEC /* ViewModel */,
+				6C5BCE5229735EF400B71BEC /* View */,
+				6C5BCE5329735EF900B71BEC /* Cell */,
+				6C5BCE5429735F0000B71BEC /* Model */,
+			);
+			path = GamesModule;
+			sourceTree = "<group>";
+		};
+		6C5BCE5029735EE900B71BEC /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6C5BCE5529735F1E00B71BEC /* GamesViewController.xib */,
+				6C5BCE5629735F1E00B71BEC /* GamesViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		6C5BCE5129735EEE00B71BEC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6C5BCE64297365B200B71BEC /* GamesViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6C5BCE5229735EF400B71BEC /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6C5BCE5329735EF900B71BEC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6C5BCE662973668600B71BEC /* GamesCell.xib */,
+				6C5BCE672973668600B71BEC /* GamesCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		6C5BCE5429735F0000B71BEC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6C5BCE592973649000B71BEC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6C5BCE5E297364FD00B71BEC /* View */,
+				6C5BCE5A2973649700B71BEC /* NSObject */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		6C5BCE5A2973649700B71BEC /* NSObject */ = {
+			isa = PBXGroup;
+			children = (
+				6C5BCE5B297364B200B71BEC /* NSObject+Extension.swift */,
+			);
+			path = NSObject;
+			sourceTree = "<group>";
+		};
+		6C5BCE5E297364FD00B71BEC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6C5BCE5F2973650C00B71BEC /* UITableView+Extension.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6C5BCE612973656600B71BEC /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				6C5BCE622973657F00B71BEC /* GamesTableViewAdapter.swift */,
+			);
+			path = Adapter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,9 +292,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C5BCE3329734AF500B71BEC /* LaunchScreen.storyboard in Resources */,
+				6C5BCE5729735F1E00B71BEC /* GamesViewController.xib in Resources */,
 				6C5BCE3029734AF500B71BEC /* Assets.xcassets in Resources */,
 				6C5BCE2B29734AF400B71BEC /* Main.storyboard in Resources */,
 				6C5BCE4D29735DC500B71BEC /* SplashViewController.xib in Resources */,
+				6C5BCE682973668600B71BEC /* GamesCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,8 +349,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C5BCE5829735F1E00B71BEC /* GamesViewController.swift in Sources */,
 				6C5BCE442973519A00B71BEC /* NetworkManager.swift in Sources */,
+				6C5BCE602973650C00B71BEC /* UITableView+Extension.swift in Sources */,
 				6C5BCE2829734AF400B71BEC /* ViewController.swift in Sources */,
+				6C5BCE5C297364B200B71BEC /* NSObject+Extension.swift in Sources */,
+				6C5BCE65297365B200B71BEC /* GamesViewModel.swift in Sources */,
+				6C5BCE632973657F00B71BEC /* GamesTableViewAdapter.swift in Sources */,
+				6C5BCE692973668600B71BEC /* GamesCell.swift in Sources */,
 				6C5BCE2429734AF400B71BEC /* AppDelegate.swift in Sources */,
 				6C5BCE4E29735DC500B71BEC /* SplashViewController.swift in Sources */,
 				6C5BCE4229734F3A00B71BEC /* NetworkHelper.swift in Sources */,
@@ -403,7 +515,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -432,7 +544,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
