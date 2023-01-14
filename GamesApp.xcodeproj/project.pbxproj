@@ -8,24 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		6C5BCE2429734AF400B71BEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BCE2329734AF400B71BEC /* AppDelegate.swift */; };
-		6C5BCE2629734AF400B71BEC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BCE2529734AF400B71BEC /* SceneDelegate.swift */; };
 		6C5BCE2829734AF400B71BEC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BCE2729734AF400B71BEC /* ViewController.swift */; };
 		6C5BCE2B29734AF400B71BEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C5BCE2929734AF400B71BEC /* Main.storyboard */; };
 		6C5BCE2E29734AF400B71BEC /* GamesApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BCE2C29734AF400B71BEC /* GamesApp.xcdatamodeld */; };
 		6C5BCE3029734AF500B71BEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C5BCE2F29734AF500B71BEC /* Assets.xcassets */; };
 		6C5BCE3329734AF500B71BEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C5BCE3129734AF500B71BEC /* LaunchScreen.storyboard */; };
+		6C5BCE3E29734C2000B71BEC /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C5BCE3C29734C2000B71BEC /* SplashViewController.xib */; };
+		6C5BCE3F29734C2000B71BEC /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BCE3D29734C2000B71BEC /* SplashViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6C5BCE2029734AF400B71BEC /* GamesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GamesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C5BCE2329734AF400B71BEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6C5BCE2529734AF400B71BEC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		6C5BCE2729734AF400B71BEC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6C5BCE2A29734AF400B71BEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6C5BCE2D29734AF400B71BEC /* GamesApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GamesApp.xcdatamodel; sourceTree = "<group>"; };
 		6C5BCE2F29734AF500B71BEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C5BCE3229734AF500B71BEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6C5BCE3429734AF500B71BEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C5BCE3C29734C2000B71BEC /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
+		6C5BCE3D29734C2000B71BEC /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +60,8 @@
 		6C5BCE2229734AF400B71BEC /* GamesApp */ = {
 			isa = PBXGroup;
 			children = (
+				6C5BCE3A29734C0100B71BEC /* Modules */,
 				6C5BCE2329734AF400B71BEC /* AppDelegate.swift */,
-				6C5BCE2529734AF400B71BEC /* SceneDelegate.swift */,
 				6C5BCE2729734AF400B71BEC /* ViewController.swift */,
 				6C5BCE2929734AF400B71BEC /* Main.storyboard */,
 				6C5BCE2F29734AF500B71BEC /* Assets.xcassets */,
@@ -68,6 +70,23 @@
 				6C5BCE2C29734AF400B71BEC /* GamesApp.xcdatamodeld */,
 			);
 			path = GamesApp;
+			sourceTree = "<group>";
+		};
+		6C5BCE3A29734C0100B71BEC /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				6C5BCE3B29734C0800B71BEC /* Splash */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		6C5BCE3B29734C0800B71BEC /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				6C5BCE3C29734C2000B71BEC /* SplashViewController.xib */,
+				6C5BCE3D29734C2000B71BEC /* SplashViewController.swift */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,6 +150,7 @@
 				6C5BCE3329734AF500B71BEC /* LaunchScreen.storyboard in Resources */,
 				6C5BCE3029734AF500B71BEC /* Assets.xcassets in Resources */,
 				6C5BCE2B29734AF400B71BEC /* Main.storyboard in Resources */,
+				6C5BCE3E29734C2000B71BEC /* SplashViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,8 +163,8 @@
 			files = (
 				6C5BCE2829734AF400B71BEC /* ViewController.swift in Sources */,
 				6C5BCE2429734AF400B71BEC /* AppDelegate.swift in Sources */,
-				6C5BCE2629734AF400B71BEC /* SceneDelegate.swift in Sources */,
 				6C5BCE2E29734AF400B71BEC /* GamesApp.xcdatamodeld in Sources */,
+				6C5BCE3F29734C2000B71BEC /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
