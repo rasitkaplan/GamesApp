@@ -19,12 +19,24 @@ class GamesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        bindGames()
+        viewModel.didViewLoad()
     }
 
     func setupUI() {
         tableAdapter = .init(tableView: tableView, viewModel: viewModel)
     }
+    
+    func bindGames() {
+        viewModel.reloadDelegate = self
+    }
 
     @IBAction func filterButtonClicked(_ sender: Any) {
+    }
+}
+
+extension GamesViewController: ReloadProtocol {
+    func reloadData(games: [GamesResult]) {
+        tableAdapter.setTableView(games: games)
     }
 }
