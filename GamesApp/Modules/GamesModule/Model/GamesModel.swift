@@ -14,12 +14,17 @@ class GamesModel {
     private(set) var games: [GamesResult] = []
     weak var delegate: GamesModelProtocol?
     
-    func fetchGames(isSearch: Bool = false, query: String = "") {
+    func fetchGames(isSearch: Bool = false, query: String = "", isFilter: Bool = false, filter: String = "") {
         var parameters: Parameters = ["key" : "3fb74f844d8a4b4d997fc93f9e849fec"]
         if isSearch {
             parameters = [
                 "key": "3fb74f844d8a4b4d997fc93f9e849fec",
                 "search": query
+            ]
+        } else if isFilter {
+            parameters = [
+                "key": "3fb74f844d8a4b4d997fc93f9e849fec",
+                "ordering": "-\(filter)"
             ]
         }
         NetworkManager.request(type: GamesApiModel.self, url: NetworkHelper.shared.gamesURL, method: .get, parameters: parameters) { [weak self] response in

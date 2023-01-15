@@ -11,6 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GamesViewController" customModule="GamesApp" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="rO5-kp-vAY" id="Jee-84-zcO"/>
+                <outlet property="pickerHeightConstraint" destination="cXD-qr-ymN" id="Es3-6K-MQG"/>
+                <outlet property="pickerView" destination="FZW-pO-RvA" id="xxv-83-DFB"/>
                 <outlet property="searchBar" destination="Bcc-ig-2Ya" id="ZyS-2X-F40"/>
                 <outlet property="tableView" destination="U2z-fp-Mvf" id="nQ6-B5-8m6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -61,6 +64,16 @@
                     <rect key="frame" x="0.0" y="107" width="390" height="737"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
+                <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FZW-pO-RvA">
+                    <rect key="frame" x="0.0" y="844" width="390" height="0.0"/>
+                    <color key="backgroundColor" systemColor="systemRedColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" id="cXD-qr-ymN"/>
+                    </constraints>
+                </pickerView>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="rO5-kp-vAY">
+                    <rect key="frame" x="176.66666666666666" y="403.66666666666669" width="37" height="37"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -68,10 +81,15 @@
                 <constraint firstAttribute="bottom" secondItem="U2z-fp-Mvf" secondAttribute="bottom" id="7sk-E8-dSy"/>
                 <constraint firstItem="U2z-fp-Mvf" firstAttribute="top" secondItem="kbs-PW-3wL" secondAttribute="bottom" constant="10" id="8ul-ar-dsP"/>
                 <constraint firstItem="kbs-PW-3wL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="O0m-DV-rLq"/>
+                <constraint firstItem="rO5-kp-vAY" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="UdS-ld-zCu"/>
+                <constraint firstItem="FZW-pO-RvA" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Zvp-7A-EbJ"/>
                 <constraint firstItem="kbs-PW-3wL" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="e37-eh-woq"/>
                 <constraint firstItem="U2z-fp-Mvf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hSX-BT-HQO"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="U2z-fp-Mvf" secondAttribute="trailing" id="hi2-rJ-sOk"/>
+                <constraint firstItem="FZW-pO-RvA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="jFC-Dp-cWk"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kbs-PW-3wL" secondAttribute="trailing" id="qjw-e5-gkO"/>
+                <constraint firstAttribute="bottom" secondItem="FZW-pO-RvA" secondAttribute="bottom" id="uYb-GB-k7o"/>
+                <constraint firstItem="rO5-kp-vAY" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="vNv-Po-TUv"/>
             </constraints>
             <point key="canvasLocation" x="130.76923076923077" y="-11.374407582938389"/>
         </view>
@@ -80,6 +98,9 @@
         <image name="filterIcon" width="20" height="20"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
