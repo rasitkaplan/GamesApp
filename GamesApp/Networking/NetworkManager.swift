@@ -10,10 +10,9 @@ import Alamofire
 
 class NetworkManager {
     
-    static func request<T: Codable>(type: T.Type, url: String, method: HTTPMethod, completion: @escaping((Result<T, ErrorTypes>) -> ())) {
+    static func request<T: Codable>(type: T.Type, url: String, method: HTTPMethod, parameters: Parameters, completion: @escaping((Result<T, ErrorTypes>) -> ())) {
         
-        AF.request(url, method: method).response { response in
-            
+        AF.request(url, method: method, parameters: parameters).response { response in
             switch response.result {
             case .success(let data):
                 if let data = data {
