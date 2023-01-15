@@ -76,10 +76,10 @@ extension GamesViewController: StateDelegate {
 extension GamesViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.count >= 3 {
-            activityIndicator.startAnimating()
+            viewModel.state = .loading
             viewModel.query = searchText
         } else if searchText.count == 0 {
-            activityIndicator.stopAnimating()
+            viewModel.state = .loading
             viewModel.query = ""
         }
     }
