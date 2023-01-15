@@ -21,6 +21,7 @@ class GamesViewController: UIViewController {
         setupUI()
         bindGames()
         viewModel.didViewLoad()
+        searchBar.delegate = self
     }
 
     func setupUI() {
@@ -38,5 +39,15 @@ class GamesViewController: UIViewController {
 extension GamesViewController: ReloadProtocol {
     func reloadData(games: [GamesResult]) {
         tableAdapter.setTableView(games: games)
+    }
+}
+
+extension GamesViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.count >= 3 {
+            viewModel.query = searchText
+        } else if searchText.count == 0 {
+            viewModel.query = ""
+        }
     }
 }

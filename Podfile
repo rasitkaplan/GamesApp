@@ -6,6 +6,7 @@ target 'GamesApp' do
   use_frameworks!
 
 pod 'Alamofire'
+pod 'Kingfisher'
   # Pods for GamesApp
 
 end

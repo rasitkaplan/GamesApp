@@ -11,7 +11,16 @@ class GamesTableViewAdapter: NSObject {
     private var tableView: UITableView?
     private weak var viewModel: GamesViewModel?
     
-    private var games: [GamesResult] = []
+    private var games: [GamesResult] = [] {
+        didSet {
+            if games.count == 0 {
+                self.tableView?.showEmptyLabel(message: "Sonuc bulunamadi", containerView: self.tableView!)
+            } else {
+                self.tableView?.hideTableViewEmptyMessage()
+            }
+        }
+    }
+
     init(tableView: UITableView, viewModel: GamesViewModel) {
       self.tableView = tableView
       self.viewModel = viewModel
@@ -42,7 +51,7 @@ extension GamesTableViewAdapter: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCell(withIdentifier: GamesCell.nameOfClass) as! GamesCell
-      cell.textLabel?.text = games[indexPath.row].name ?? ""
-    return cell
+      cell.setCell(games: games[indexPath.row])
+      return cell
   }
 }

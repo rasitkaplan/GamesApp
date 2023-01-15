@@ -12,7 +12,15 @@ protocol ReloadProtocol: AnyObject {
 class GamesViewModel {
     private let model = GamesModel()
     weak var reloadDelegate: ReloadProtocol?
-   
+    var query: String? {
+        didSet {
+            if query == "" {
+                model.fetchGames()
+            } else {
+                model.fetchGames(isSearch: true, query: query ?? "")
+            }
+        }
+    }
     init() {
         model.delegate = self
     }

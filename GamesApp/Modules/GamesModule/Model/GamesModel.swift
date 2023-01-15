@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import Alamofire
 protocol GamesModelProtocol : AnyObject {
     func didFetchGames()
 }
@@ -14,8 +14,15 @@ class GamesModel {
     private(set) var games: [GamesResult] = []
     weak var delegate: GamesModelProtocol?
     
-    func fetchGames() {
-        NetworkManager.request(type: GamesApiModel.self, url: NetworkHelper.shared.gamesURL, method: .get, parameters: NetworkHelper.shared.gamesParameters) { [weak self] response in
+    func fetchGames(isSearch: Bool = false, query: String = "") {
+        var parameters: Parameters = ["key" : "3fb74f844d8a4b4d997fc93f9e849fec"]
+        if isSearch {
+            parameters = [
+                "key": "3fb74f844d8a4b4d997fc93f9e849fec",
+                "search": query
+            ]
+        }
+        NetworkManager.request(type: GamesApiModel.self, url: NetworkHelper.shared.gamesURL, method: .get, parameters: parameters) { [weak self] response in
             guard let self = self else { return }
             switch response {
             case .success(let games):
