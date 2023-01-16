@@ -7,6 +7,9 @@
 
 import Foundation
 import UIKit
+protocol NavigationProtocol: NSObject {
+    func navigateDetail(games: GamesResult)
+}
 class GamesTableViewAdapter: NSObject {
     private var tableView: UITableView?
     private weak var viewModel: GamesViewModel?
@@ -20,6 +23,7 @@ class GamesTableViewAdapter: NSObject {
             }
         }
     }
+    weak var navigationDelegate: NavigationProtocol?
 
     init(tableView: UITableView, viewModel: GamesViewModel) {
       self.tableView = tableView
@@ -41,7 +45,11 @@ class GamesTableViewAdapter: NSObject {
     }
 }
 
-extension GamesTableViewAdapter: UITableViewDelegate {}
+extension GamesTableViewAdapter: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.navigationDelegate?.navigateDetail(games: self.games[indexPath.row])
+    }
+}
 
 extension GamesTableViewAdapter: UITableViewDataSource {
   
