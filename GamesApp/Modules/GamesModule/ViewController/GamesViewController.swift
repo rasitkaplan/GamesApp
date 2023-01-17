@@ -30,6 +30,7 @@ class GamesViewController: UIViewController {
 
     func setupTableView() {
         tableAdapter = .init(tableView: tableView, viewModel: viewModel)
+        tableAdapter.navigationDelegate = self
     }
 
     func setupPickerView() {
@@ -82,5 +83,13 @@ extension GamesViewController: UISearchBarDelegate {
             viewModel.state = .loading
             viewModel.query = ""
         }
+    }
+}
+
+extension GamesViewController: NavigationProtocol {
+    func navigateDetail(games: GamesResult) {
+        let vc = GamesDetailViewController()
+        vc.games = games
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

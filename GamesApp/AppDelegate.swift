@@ -12,11 +12,25 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let center = UNUserNotificationCenter.current()
+    let options: UNAuthorizationOptions = [.badge, .alert, .sound]
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let viewController = SplashViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
+        
+        center.getNotificationSettings { (settings) in
+            if settings.authorizationStatus != .authorized {
+                self.center.requestAuthorization(options: self.options) { (accepted, error) in
+                    if !accepted {
+                        print("Error")
+                    }
+                }
+            }
+            
+        }
         return true
     }
 
