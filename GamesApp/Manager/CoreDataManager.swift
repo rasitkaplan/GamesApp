@@ -55,4 +55,24 @@ class CoreDataManager {
           completion(.failure(DatabaseError.failedToFetchData))
       }
     }
+    
+    func deleteFavorites(game: GamesResult) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<GamesEntity>(entityName: "GamesEntity")
+        
+        do {
+          let result = try context.fetch(request)
+            for i in result {
+                if game.id ?? 0 == i.id {
+                    context.delete(i)
+                    do {
+                        try context.save()
+                    } catch {
+                    }
+                }
+            }
+        } catch {
+        }
+    }
 }
