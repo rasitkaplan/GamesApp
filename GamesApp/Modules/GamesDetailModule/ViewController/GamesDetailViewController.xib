@@ -190,6 +190,9 @@
                                                                 <imageReference key="image" image="note.text.badge.plus" catalog="system" variableValue="1"/>
                                                                 <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </buttonConfiguration>
+                                                            <connections>
+                                                                <action selector="addNoteClicked:" destination="-1" eventType="touchUpInside" id="n8n-ht-WxL"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3yJ-TY-02v">
                                                             <rect key="frame" x="200.66666666666663" y="30" width="159.33333333333337" height="40"/>
@@ -205,6 +208,9 @@
                                                             <buttonConfiguration key="configuration" style="plain" image="heart.fill" catalog="system" title="Add Favorites" imagePadding="5">
                                                                 <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </buttonConfiguration>
+                                                            <connections>
+                                                                <action selector="addFavoriteClicked:" destination="-1" eventType="touchUpInside" id="bZy-M0-Q9k"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>

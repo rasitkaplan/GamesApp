@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import UserNotifications
 class GamesDetailViewController: UIViewController {
 
     @IBOutlet private weak var cornerView: UIView!
@@ -31,6 +32,7 @@ class GamesDetailViewController: UIViewController {
             }
         }
     }
+
     var viewModel = GamesDetailViewModel()
     private var tableAdapter: GamesDetailTableViewAdapter!
     private var collectionViewAdapter: GamesDetailCollectionViewAdapter?
@@ -39,7 +41,6 @@ class GamesDetailViewController: UIViewController {
         setUI()
         setupTableViewAdapter()
         setupCollectionViewAdapter()
-//        tableView.showEmptyLabel(message: "Notunuz yok", containerView: tableView)
     }
     
     func setUI() {
@@ -74,5 +75,9 @@ class GamesDetailViewController: UIViewController {
     }
     
     @IBAction func addFavoriteClicked(_ sender: Any) {
+        if let game = games {
+            CoreDataManager.shared.addFavorite(model: game)
+        }
     }
 }
+

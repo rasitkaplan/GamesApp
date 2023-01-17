@@ -16,17 +16,29 @@ class CoreDataManager {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
 
         let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<GamesEntity>(entityName: "GamesEntity")
         
-        if let entity = NSEntityDescription.entity(forEntityName: "GamesEntity", in: context) {
-          let game = NSManagedObject(entity: entity, insertInto: context)
-            game.setValue(model.id ?? 0, forKey: "id")
-            game.setValue(model.name ?? "", forKey: "name")
-          do {
-            try context.save()
-          } catch {
-            print("ERROR while saving data to CoreData")
-          }
+        do {
+          let result = try context.fetch(request)
+          print("\(result.count)")
+            for i in result {
+                if i.id == model.id ?? 0 { return }
+            }
+            if let entity = NSEntityDescription.entity(forEntityName: "GamesEntity", in: context) {
+              let game = NSManagedObject(entity: entity, insertInto: context)
+                game.setValue(model.id ?? 0, forKey: "id")
+                game.setValue(model.name ?? "", forKey: "name")
+              do {
+                try context.save()
+                  NotificationManager.shared.createNotfications(name: model.name ?? "")
+              } catch {
+                print("ERROR while saving data to CoreData")
+              }
+            }
+        } catch {
         }
+        
+
     }
 
     func retrieveFromCoreData(completion: @escaping (Result<[GamesEntity], Error>) -> Void) {
