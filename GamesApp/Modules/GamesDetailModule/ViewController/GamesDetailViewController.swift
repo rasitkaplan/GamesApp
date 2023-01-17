@@ -36,8 +36,11 @@ class GamesDetailViewController: UIViewController {
     var viewModel = GamesDetailViewModel()
     private var tableAdapter: GamesDetailTableViewAdapter!
     private var collectionViewAdapter: GamesDetailCollectionViewAdapter?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.viewModel.favoriteDelegate = self
+        self.viewModel.getCacheData()
         setUI()
         setupTableViewAdapter()
         setupCollectionViewAdapter()
@@ -75,9 +78,30 @@ class GamesDetailViewController: UIViewController {
     }
     
     @IBAction func addFavoriteClicked(_ sender: Any) {
-        if let game = games {
-            CoreDataManager.shared.addFavorite(model: game)
+        if viewModel.isFavorite == false {
+            if let game = games {
+                CoreDataManager.shared.addFavorite(model: game)
+                self.viewModel.isFavorite = true
+            }
+        } else {
+            if let game = games {
+                CoreDataManager.shared.deleteFavorites(game: game)
+                self.viewModel.isFavorite = false
+                self.viewModel.getCacheData()
+            }
         }
+
     }
 }
 
+
+extension GamesDetailViewController: FavoriteProtocol {
+    func changeFavorite() {
+        if self.viewModel.isFavorite {
+            self.favoriteButton.setTitle("Favorilerden cikart", for: .normal)
+            self.favoriteButton.setNeedsLayout()
+        } else {
+            self.favoriteButton.setTitle("Favorilere Ekle", for: .normal)
+        }
+    }
+}
