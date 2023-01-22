@@ -10,10 +10,11 @@ import UIKit
 class GamesViewController: UIViewController {
 
     //MARK: Outlets
+    @IBOutlet private weak var toolbar: UIToolbar!
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var searchBar: UISearchBar!
-    @IBOutlet weak var pickerView: UIPickerView!
-    @IBOutlet weak var pickerHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var pickerView: UIPickerView!
+    @IBOutlet private weak var pickerHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
     private var tableAdapter: GamesTableViewAdapter!
@@ -36,12 +37,20 @@ class GamesViewController: UIViewController {
     func setupPickerView() {
         pickerAdapter = .init(pickerView: pickerView, viewModel: viewModel)
         pickerView.isHidden = false
+        toolbar.isHidden = false
         pickerHeightConstraint.constant = 200
     }
     
     func bindGames() {
         viewModel.stateDelegate = self
         viewModel.reloadDelegate = self
+    }
+
+    @IBAction func cancelButtonClicked(_ sender: UIBarButtonItem) {
+        pickerView.endEditing(true)
+        pickerHeightConstraint.constant = 0
+        pickerView.isHidden = true
+        toolbar.isHidden = true
     }
 
     @IBAction func filterButtonClicked(_ sender: Any) {
@@ -69,6 +78,7 @@ extension GamesViewController: StateDelegate {
                 self.activityIndicator.stopAnimating()
             case .error(let error):
                 self.activityIndicator.stopAnimating()
+                self.alert(message: error.localizedDescription)
                 debugPrint(error)
             }
         }

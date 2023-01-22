@@ -74,16 +74,17 @@ class CoreDataManager {
         }
     }
     
-    func addNote(id: String, comment: String, star: Int64) {
+    func addNote(id: Int, comment: String, star: Int64, gameName: String) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
 
         let context = appDelegate.persistentContainer.viewContext
         do {
             if let entity = NSEntityDescription.entity(forEntityName: "NoteEntity", in: context) {
               let game = NSManagedObject(entity: entity, insertInto: context)
-                game.setValue(id, forKey: "id")
+                game.setValue(Int64(id), forKey: "id")
                 game.setValue(comment, forKey: "comment")
                 game.setValue(star, forKey: "star")
+                game.setValue(gameName, forKey: "gameName")
               do {
                 try context.save()
                   debugPrint("Kayded'ld'")

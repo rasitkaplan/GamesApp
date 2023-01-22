@@ -16,8 +16,8 @@ class NotesViewModel {
         model.delegate = self
     }
     
-    func didViewLoad() {
-        model.getNoteList()
+    func didViewLoad(id: Int) {
+        model.getNoteList(id: id)
     }
 }
 

@@ -11,7 +11,17 @@ class NotesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     private let viewModel = NotesViewModel()
-    var notesList: [NoteEntity]?
+    var notesList: [NoteEntity]? {
+        didSet {
+            if notesList?.count == 0 {
+                tableView.showEmptyLabel(message: "No Comments", containerView: tableView)
+            } else {
+                tableView.hideTableViewEmptyMessage()
+            }
+        }
+    }
+    var gameName: String = ""
+    var id: Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -24,12 +34,14 @@ class NotesViewController: UIViewController {
     @objc func addTapped() {
         let vc = AddNoteViewController()
         vc.delegate = self
+        vc.gameName = gameName
+        vc.id = id
         self.present(vc, animated: true)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         bindNotes()
-        viewModel.didViewLoad()
+        viewModel.didViewLoad(id: id)
     }
     
     private func bindNotes() {
@@ -40,13 +52,14 @@ class NotesViewController: UIViewController {
 extension NotesViewController: ReloadNotesProtocol {
     func reloadNotes(notes: [NoteEntity]) {
         self.notesList = notes
+        self.notesList?.reverse()
         tableView.reloadData()
     }
 }
 
 extension NotesViewController: AddedNoteProtocol {
     func reloadNotes() {
-        viewModel.didViewLoad()
+        viewModel.didViewLoad(id: id)
     }
 }
 

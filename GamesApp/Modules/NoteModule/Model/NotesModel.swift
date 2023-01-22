@@ -10,14 +10,18 @@ protocol NotesModelProtocol : AnyObject {
     func didFetchNotes()
 }
 class NotesModel {
-    var notes: [NoteEntity]?
+    var notes: [NoteEntity] = []
     weak var delegate: NotesModelProtocol?
     
-    func getNoteList() {
+    func getNoteList(id: Int) {
         CoreDataManager.shared.getNotes { result in
             switch result {
             case .success(let notes):
-                self.notes = notes
+                for note in notes {
+                    if note.id == id {
+                        self.notes.append(note)
+                    }
+                }
                 self.delegate?.didFetchNotes()
                 print(notes)
             case .failure(let error):

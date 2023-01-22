@@ -10,6 +10,7 @@ import Kingfisher
 import UserNotifications
 class GamesDetailViewController: UIViewController {
 
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var cornerView: UIView!
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var ratingLabel: UILabel!
@@ -36,6 +37,7 @@ class GamesDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator.startAnimating()
         self.viewModel.favoriteDelegate = self
         self.viewModel.getCacheData()
         setUI()
@@ -59,7 +61,9 @@ class GamesDetailViewController: UIViewController {
         nameLabel.text = games?.name
         genreLabel.text = games?.genres?[0].name
         addedLabel.text = "\(games?.added ?? 0)"
-        
+        cornerView.isHidden = false
+        bigImageView.isHidden = false
+        activityIndicator.stopAnimating()
     }
     
     private func setupCollectionViewAdapter() {
@@ -68,6 +72,8 @@ class GamesDetailViewController: UIViewController {
 
     @IBAction func addNoteClicked(_ sender: Any) {
         let vc = NotesViewController()
+        vc.gameName = games?.name ?? ""
+        vc.id = games?.id ?? 0
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

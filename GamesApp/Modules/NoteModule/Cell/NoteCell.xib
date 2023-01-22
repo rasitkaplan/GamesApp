@@ -12,20 +12,31 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="KGk-i7-Jjw" customClass="NoteCell" customModule="GamesApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnz-3p-G2R">
-                        <rect key="frame" x="10" y="0.0" width="300" height="80"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gHb-NJ-i2m">
+                        <rect key="frame" x="10" y="10" width="300" height="120"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNX-ll-i7S">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnz-3p-G2R">
+                                <rect key="frame" x="0.0" y="60" width="300" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MZU-ca-wqF" customClass="CosmosView" customModule="Cosmos">
-                        <rect key="frame" x="50" y="90" width="220" height="60"/>
+                        <rect key="frame" x="50" y="140" width="220" height="60"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="60" id="2hI-rU-64f"/>
@@ -41,18 +52,19 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="vnz-3p-G2R" secondAttribute="trailing" constant="10" id="2n7-E6-VTj"/>
-                    <constraint firstItem="MZU-ca-wqF" firstAttribute="top" secondItem="vnz-3p-G2R" secondAttribute="bottom" constant="10" id="DnN-7s-Ezy"/>
-                    <constraint firstItem="vnz-3p-G2R" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="NES-ME-Q3N"/>
+                    <constraint firstAttribute="trailing" secondItem="gHb-NJ-i2m" secondAttribute="trailing" constant="10" id="8R5-Gl-ELI"/>
+                    <constraint firstItem="gHb-NJ-i2m" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Cen-1e-nGa"/>
+                    <constraint firstItem="gHb-NJ-i2m" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Htk-ge-rDe"/>
+                    <constraint firstItem="MZU-ca-wqF" firstAttribute="top" secondItem="gHb-NJ-i2m" secondAttribute="bottom" constant="10" id="VpB-Jd-kZ8"/>
                     <constraint firstItem="MZU-ca-wqF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="50" id="gGD-Pr-gDp"/>
                     <constraint firstAttribute="bottom" secondItem="MZU-ca-wqF" secondAttribute="bottom" id="qDY-lW-QUr"/>
                     <constraint firstAttribute="trailing" secondItem="MZU-ca-wqF" secondAttribute="trailing" constant="50" id="qdg-dD-i6R"/>
-                    <constraint firstItem="vnz-3p-G2R" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="yla-RL-0D6"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="commentLabel" destination="vnz-3p-G2R" id="Ffu-ou-uVI"/>
+                <outlet property="nameLabel" destination="RNX-ll-i7S" id="K7c-Ur-P0j"/>
                 <outlet property="starView" destination="MZU-ca-wqF" id="386-Ze-S7M"/>
             </connections>
             <point key="canvasLocation" x="-17" y="21"/>

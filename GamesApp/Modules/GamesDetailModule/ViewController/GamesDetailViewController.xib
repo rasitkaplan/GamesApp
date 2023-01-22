@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GamesDetailViewController" customModule="GamesApp" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="8F8-3L-sOx" id="0H5-y4-zEq"/>
                 <outlet property="addedLabel" destination="xoe-JZ-Vo4" id="1eb-Ny-OMG"/>
                 <outlet property="bigImageView" destination="W2v-Vn-MCM" id="oj2-0n-RUy"/>
                 <outlet property="collectionView" destination="YwF-hb-EiJ" id="sj4-vp-IBw"/>
@@ -31,13 +32,13 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W2v-Vn-MCM">
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W2v-Vn-MCM">
                     <rect key="frame" x="0.0" y="47" width="390" height="300"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="300" id="MdY-eW-1Dg"/>
                     </constraints>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jty-bR-Njw">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jty-bR-Njw">
                     <rect key="frame" x="0.0" y="247" width="390" height="597"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4IQ-sx-xas">
@@ -229,6 +230,9 @@
                         <constraint firstItem="4IQ-sx-xas" firstAttribute="top" secondItem="Jty-bR-Njw" secondAttribute="top" constant="13" id="pZe-E2-aHr"/>
                     </constraints>
                 </view>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="8F8-3L-sOx">
+                    <rect key="frame" x="176.66666666666666" y="403.66666666666669" width="37" height="37"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -238,6 +242,8 @@
                 <constraint firstItem="Jty-bR-Njw" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Qcf-vS-YV7"/>
                 <constraint firstItem="Jty-bR-Njw" firstAttribute="top" secondItem="W2v-Vn-MCM" secondAttribute="bottom" constant="-100" id="Rbl-fZ-KqC"/>
                 <constraint firstItem="W2v-Vn-MCM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Sj8-fM-5PG"/>
+                <constraint firstItem="8F8-3L-sOx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="c07-YC-968"/>
+                <constraint firstItem="8F8-3L-sOx" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="eBr-Di-IIi"/>
                 <constraint firstItem="W2v-Vn-MCM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="moh-c7-Ikg"/>
                 <constraint firstItem="Jty-bR-Njw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="vFj-MD-u2v"/>
             </constraints>

@@ -16,6 +16,7 @@
                 <outlet property="pickerView" destination="FZW-pO-RvA" id="xxv-83-DFB"/>
                 <outlet property="searchBar" destination="Bcc-ig-2Ya" id="ZyS-2X-F40"/>
                 <outlet property="tableView" destination="U2z-fp-Mvf" id="nQ6-B5-8m6"/>
+                <outlet property="toolbar" destination="kha-LY-vlG" id="j0Q-6m-Q46"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -64,9 +65,22 @@
                     <rect key="frame" x="0.0" y="107" width="390" height="737"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
+                <toolbar hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kha-LY-vlG">
+                    <rect key="frame" x="0.0" y="711" width="390" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="7HI-nh-Riu"/>
+                    </constraints>
+                    <items>
+                        <barButtonItem systemItem="cancel" id="ETS-sC-oUw">
+                            <connections>
+                                <action selector="cancelButtonClicked:" destination="-1" id="geW-CJ-0p6"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
                 <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FZW-pO-RvA">
-                    <rect key="frame" x="0.0" y="844" width="390" height="0.0"/>
-                    <color key="backgroundColor" systemColor="systemRedColor"/>
+                    <rect key="frame" x="0.0" y="761" width="390" height="0.0"/>
+                    <color key="backgroundColor" systemColor="labelColor"/>
                     <constraints>
                         <constraint firstAttribute="height" id="cXD-qr-ymN"/>
                     </constraints>
@@ -80,7 +94,10 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="U2z-fp-Mvf" secondAttribute="bottom" id="7sk-E8-dSy"/>
                 <constraint firstItem="U2z-fp-Mvf" firstAttribute="top" secondItem="kbs-PW-3wL" secondAttribute="bottom" constant="10" id="8ul-ar-dsP"/>
+                <constraint firstItem="FZW-pO-RvA" firstAttribute="top" secondItem="kha-LY-vlG" secondAttribute="bottom" id="9k5-0g-YWF"/>
                 <constraint firstItem="kbs-PW-3wL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="O0m-DV-rLq"/>
+                <constraint firstItem="kha-LY-vlG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Ocu-FM-woK"/>
+                <constraint firstItem="kha-LY-vlG" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Pjw-45-Sk1"/>
                 <constraint firstItem="rO5-kp-vAY" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="UdS-ld-zCu"/>
                 <constraint firstItem="FZW-pO-RvA" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Zvp-7A-EbJ"/>
                 <constraint firstItem="kbs-PW-3wL" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="e37-eh-woq"/>
@@ -88,7 +105,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="U2z-fp-Mvf" secondAttribute="trailing" id="hi2-rJ-sOk"/>
                 <constraint firstItem="FZW-pO-RvA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="jFC-Dp-cWk"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kbs-PW-3wL" secondAttribute="trailing" id="qjw-e5-gkO"/>
-                <constraint firstAttribute="bottom" secondItem="FZW-pO-RvA" secondAttribute="bottom" id="uYb-GB-k7o"/>
+                <constraint firstAttribute="bottom" secondItem="FZW-pO-RvA" secondAttribute="bottom" constant="83" id="uYb-GB-k7o"/>
                 <constraint firstItem="rO5-kp-vAY" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="vNv-Po-TUv"/>
             </constraints>
             <point key="canvasLocation" x="130.76923076923077" y="-11.374407582938389"/>
@@ -96,11 +113,11 @@
     </objects>
     <resources>
         <image name="filterIcon" width="20" height="20"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
