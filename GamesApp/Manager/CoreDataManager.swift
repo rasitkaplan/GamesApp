@@ -37,8 +37,6 @@ class CoreDataManager {
             }
         } catch {
         }
-        
-
     }
 
     func retrieveFromCoreData(completion: @escaping (Result<[GamesEntity], Error>) -> Void) {
@@ -74,5 +72,42 @@ class CoreDataManager {
             }
         } catch {
         }
+    }
+    
+    func addNote(id: String, comment: String, star: Int64) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
+
+        let context = appDelegate.persistentContainer.viewContext
+        do {
+            if let entity = NSEntityDescription.entity(forEntityName: "NoteEntity", in: context) {
+              let game = NSManagedObject(entity: entity, insertInto: context)
+                game.setValue(id, forKey: "id")
+                game.setValue(comment, forKey: "comment")
+                game.setValue(star, forKey: "star")
+              do {
+                try context.save()
+                  debugPrint("Kayded'ld'")
+//                  NotificationManager.shared.createNotfications(name: model.name ?? "")
+              } catch {
+                print("ERROR while saving data to CoreData")
+              }
+            }
+        } catch {
+        }
+    }
+    
+    func getNotes(completion: @escaping (Result<[NoteEntity], Error>) -> Void) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
+      let context = appDelegate.persistentContainer.viewContext
+      
+      let request = NSFetchRequest<NoteEntity>(entityName: "NoteEntity")
+      
+      do {
+        let result = try context.fetch(request)
+          completion(.success(result))
+        print("\(result.count)")
+      } catch {
+          completion(.failure(DatabaseError.failedToFetchData))
+      }
     }
 }

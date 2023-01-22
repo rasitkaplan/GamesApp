@@ -76,12 +76,14 @@ extension GamesViewController: StateDelegate {
 }
 extension GamesViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.count >= 3 {
-            viewModel.state = .loading
-            viewModel.query = searchText
-        } else if searchText.count == 0 {
-            viewModel.state = .loading
-            viewModel.query = ""
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            if searchText.count >= 3 {
+                self.viewModel.state = .loading
+                self.viewModel.query = searchText
+            } else if searchText.count == 0 {
+                self.viewModel.state = .loading
+                self.viewModel.query = ""
+            }
         }
     }
 }

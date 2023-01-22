@@ -7,6 +7,7 @@ target 'GamesApp' do
 
 pod 'Alamofire'
 pod 'Kingfisher'
+pod 'Cosmos', '~> 23.0'
   # Pods for GamesApp
 
 end

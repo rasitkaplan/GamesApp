@@ -21,8 +21,6 @@ class GamesDetailViewController: UIViewController {
     @IBOutlet private weak var addedLabel: UILabel!
     @IBOutlet private weak var noteButton: UIButton!
     @IBOutlet private weak var favoriteButton: UIButton!
-    @IBOutlet private weak var noteLabel: UILabel!
-    @IBOutlet private weak var tableView: UITableView!
 
     var games: GamesResult? {
         didSet {
@@ -34,7 +32,6 @@ class GamesDetailViewController: UIViewController {
     }
 
     var viewModel = GamesDetailViewModel()
-    private var tableAdapter: GamesDetailTableViewAdapter!
     private var collectionViewAdapter: GamesDetailCollectionViewAdapter?
 
     override func viewDidLoad() {
@@ -42,7 +39,6 @@ class GamesDetailViewController: UIViewController {
         self.viewModel.favoriteDelegate = self
         self.viewModel.getCacheData()
         setUI()
-        setupTableViewAdapter()
         setupCollectionViewAdapter()
     }
     
@@ -66,15 +62,13 @@ class GamesDetailViewController: UIViewController {
         
     }
     
-    private func setupTableViewAdapter() {
-        tableAdapter = .init(tableView: tableView, viewModel: viewModel)
-    }
-    
     private func setupCollectionViewAdapter() {
         collectionViewAdapter = .init(collectionView: collectionView, viewModel: viewModel)
     }
 
     @IBAction func addNoteClicked(_ sender: Any) {
+        let vc = NotesViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func addFavoriteClicked(_ sender: Any) {
