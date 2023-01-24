@@ -6,6 +6,7 @@
 //
 
 import Foundation
+// MARK: - Error Enum
 enum DatabaseError: Error {
     case failedToSaveData
     case failedToFetchData

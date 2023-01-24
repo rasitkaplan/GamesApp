@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 class NetworkManager {
-    
+    // MARK: - Request
     static func request<T: Codable>(type: T.Type, url: String, method: HTTPMethod, parameters: Parameters, completion: @escaping((Result<T, ErrorTypes>) -> ())) {
         
         AF.request(url, method: method, parameters: parameters).response { response in
@@ -26,7 +26,7 @@ class NetworkManager {
             }
         }
     }
-    
+    // MARK: - Handle Response
     private static func handleResponse<T: Codable>(data: Data, completion: @escaping((Result<T, ErrorTypes>) -> ())) {
         do {
             let result = try JSONDecoder().decode(T.self, from: data)

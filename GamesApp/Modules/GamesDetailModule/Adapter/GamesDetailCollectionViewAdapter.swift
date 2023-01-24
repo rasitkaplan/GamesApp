@@ -8,16 +8,19 @@
 import Foundation
 import UIKit
 class GamesDetailCollectionViewAdapter: NSObject {
+    // MARK: - Variables
     var collectionView: UICollectionView!
     private weak var viewModel: GamesDetailViewModel?
 
+    // MARK: - Init
     init(collectionView: UICollectionView, viewModel: GamesDetailViewModel) {
         self.collectionView = collectionView
-         self.viewModel = viewModel
+        self.viewModel = viewModel
         super.init()
         setupCollectionView()
     }
-    
+ 
+    // MARK: - Setup ColletionView
     private func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -25,6 +28,7 @@ class GamesDetailCollectionViewAdapter: NSObject {
     }
 }
 
+// MARK: - Collection View Functions
 extension GamesDetailCollectionViewAdapter: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel?.game?.shortScreenshots?.count ?? 0

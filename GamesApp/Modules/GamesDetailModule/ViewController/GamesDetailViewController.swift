@@ -10,6 +10,7 @@ import Kingfisher
 import UserNotifications
 class GamesDetailViewController: UIViewController {
 
+    // MARK: - Outlets
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var cornerView: UIView!
     @IBOutlet private weak var collectionView: UICollectionView!
@@ -23,11 +24,11 @@ class GamesDetailViewController: UIViewController {
     @IBOutlet private weak var noteButton: UIButton!
     @IBOutlet private weak var favoriteButton: UIButton!
 
+    // MARK: - Variables
     var games: GamesResult? {
         didSet {
             if let game = games {
                 viewModel.game = game
-
             }
         }
     }
@@ -35,15 +36,17 @@ class GamesDetailViewController: UIViewController {
     var viewModel = GamesDetailViewModel()
     private var collectionViewAdapter: GamesDetailCollectionViewAdapter?
 
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator.startAnimating()
         self.viewModel.favoriteDelegate = self
-        self.viewModel.getCacheData()
+        self.viewModel.didViewLoad()
         setUI()
         setupCollectionViewAdapter()
     }
     
+    // MARK: - UI Functions
     func setUI() {
         smallView.layer.cornerRadius = smallView.frame.height / 2
         cornerView.clipsToBounds = true
@@ -66,10 +69,14 @@ class GamesDetailViewController: UIViewController {
         activityIndicator.stopAnimating()
     }
     
+    // MARK: - Setup
     private func setupCollectionViewAdapter() {
         collectionViewAdapter = .init(collectionView: collectionView, viewModel: viewModel)
     }
+}
 
+// MARK: - Button Actions
+extension GamesDetailViewController {
     @IBAction func addNoteClicked(_ sender: Any) {
         let vc = NotesViewController()
         vc.gameName = games?.name ?? ""
@@ -94,7 +101,7 @@ class GamesDetailViewController: UIViewController {
     }
 }
 
-
+// MARK: - View Model Protocol
 extension GamesDetailViewController: FavoriteProtocol {
     func changeFavorite() {
         if self.viewModel.isFavorite {

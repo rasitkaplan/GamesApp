@@ -6,13 +6,16 @@
 //
 
 import Foundation
+// MARK: - Protocol
 protocol NotesModelProtocol : AnyObject {
     func didFetchNotes()
 }
 class NotesModel {
+    // MARK: - Variables
     var notes: [NoteEntity] = []
     weak var delegate: NotesModelProtocol?
-    
+   
+    // MARK: - Get Notes From Cache
     func getNoteList(id: Int) {
         CoreDataManager.shared.getNotes { result in
             switch result {

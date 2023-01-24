@@ -6,6 +6,7 @@
 //
 
 import Foundation
+// MARK: - Protocols
 protocol SendGameProtocol: AnyObject {
     func sendGame(game: GamesResult)
 }
@@ -13,7 +14,9 @@ protocol SendGameProtocol: AnyObject {
 protocol FavoriteProtocol: AnyObject {
     func changeFavorite()
 }
+
 class GamesDetailViewModel {
+    // MARK: - Variables
     var game: GamesResult?
     var isFavorite: Bool = false {
         didSet {
@@ -22,9 +25,12 @@ class GamesDetailViewModel {
     }
     weak var sendDelegate: SendGameProtocol?
     weak var favoriteDelegate: FavoriteProtocol?
+
     func didViewLoad() {
+        getCacheData()
     }
-    
+
+    // MARK: - Get Data From Cache
     func getCacheData() {
         CoreDataManager.shared.retrieveFromCoreData { result in
             switch result {

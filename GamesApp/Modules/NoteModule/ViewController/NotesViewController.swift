@@ -9,28 +9,32 @@ import UIKit
 
 class NotesViewController: UIViewController {
 
+    // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
+
+    // MARK: - Variables
     private let viewModel = NotesViewModel()
-    var notesList: [NoteEntity]? {
-        didSet {
-            if notesList?.count == 0 {
-                tableView.showEmptyLabel(message: "No Comments", containerView: tableView)
-            } else {
-                tableView.hideTableViewEmptyMessage()
-            }
-        }
-    }
+    private var tableAdapter: NoteTableViewAdapter!
+    var notesList: [NoteEntity]?
     var gameName: String = ""
     var id: Int = 0
+    
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.registerCells([NoteCell.self])
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
-
     }
-    
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        bindNotes()
+        setupTableView()
+        viewModel.didViewLoad(id: id)
+    }
+}
+
+//MARK: - Button Action
+extension NotesViewController {
     @objc func addTapped() {
         let vc = AddNoteViewController()
         vc.delegate = self
@@ -38,22 +42,23 @@ class NotesViewController: UIViewController {
         vc.id = id
         self.present(vc, animated: true)
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        bindNotes()
-        viewModel.didViewLoad(id: id)
-    }
-    
+}
+
+// MARK: - Setup And Bind
+extension NotesViewController {
     private func bindNotes() {
         viewModel.reloadDelegate = self
     }
+    
+    func setupTableView() {
+        tableAdapter = .init(tableView: tableView, viewModel: viewModel)
+    }
 }
 
+// MARK: - Delegates
 extension NotesViewController: ReloadNotesProtocol {
     func reloadNotes(notes: [NoteEntity]) {
-        self.notesList = notes
-        self.notesList?.reverse()
-        tableView.reloadData()
+        tableAdapter.setTableView(noteList: notes)
     }
 }
 
@@ -62,18 +67,3 @@ extension NotesViewController: AddedNoteProtocol {
         viewModel.didViewLoad(id: id)
     }
 }
-
-extension NotesViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return notesList?.count ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: NoteCell.nameOfClass, for: indexPath) as! NoteCell
-        if let notes = notesList?[indexPath.row] {
-            cell.setCell(notes: notes)
-        }
-        return cell
-    }
-}
-

@@ -7,25 +7,30 @@
 
 import Foundation
 import UIKit
-class GamesPicketViewAdapter: NSObject {
+class GamesPickerViewAdapter: NSObject {
+    // MARK: - Outlets
     private var pickerView: UIPickerView!
     private weak var viewModel: GamesViewModel?
 
+    // MARK: - Init
     init(pickerView: UIPickerView, viewModel: GamesViewModel) {
       self.pickerView = pickerView
       self.viewModel = viewModel
       super.init()
         pickerDelegate()
     }
-    
+}
+
+// MARK: - Picker Delegate Function
+extension GamesPickerViewAdapter {
     func pickerDelegate() {
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
     }
 }
 
-
-extension GamesPicketViewAdapter: UIPickerViewDelegate, UIPickerViewDataSource {
+// MARK: - TableView Functions
+extension GamesPickerViewAdapter: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

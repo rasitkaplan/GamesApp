@@ -16,11 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let options: UNAuthorizationOptions = [.badge, .alert, .sound]
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // MARK: - Start App From SplashViewController
         let viewController = SplashViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         
+        // MARK: - Notification Permission Request
         center.getNotificationSettings { (settings) in
             if settings.authorizationStatus != .authorized {
                 self.center.requestAuthorization(options: self.options) { (accepted, error) in

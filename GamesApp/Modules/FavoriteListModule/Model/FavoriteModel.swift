@@ -6,20 +6,22 @@
 //
 
 import Foundation
+// MARK: - Protocol
 protocol FavoriteModelProtocol : AnyObject {
     func didFetchFavorites()
 }
 class FavoriteModel {
-    var games: [GamesEntity]?
+    // MARK: - Variables
+    var favorites: [GamesEntity]?
     weak var delegate: FavoriteModelProtocol?
     
+    // MARK: - Get Data From Cache
     func getFavoriteList() {
         CoreDataManager.shared.retrieveFromCoreData { result in
             switch result {
-            case .success(let games):
-                self.games = games
+            case .success(let favorites):
+                self.favorites = favorites
                 self.delegate?.didFetchFavorites()
-                print(games)
             case .failure(let error):
                 print(error)
             }

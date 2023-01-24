@@ -7,13 +7,18 @@
 
 import Foundation
 import UIKit
+
+// MARK: - Protocols
 protocol NavigationProtocol: NSObject {
     func navigateDetail(games: GamesResult)
 }
+
 class GamesTableViewAdapter: NSObject {
+    // MARK: - Outlets
     private var tableView: UITableView?
     private weak var viewModel: GamesViewModel?
     
+    // MARK: - Variables
     private var games: [GamesResult] = [] {
         didSet {
             if games.count == 0 {
@@ -25,6 +30,7 @@ class GamesTableViewAdapter: NSObject {
     }
     weak var navigationDelegate: NavigationProtocol?
 
+    // MARK: - Init
     init(tableView: UITableView, viewModel: GamesViewModel) {
       self.tableView = tableView
       self.viewModel = viewModel
@@ -32,19 +38,22 @@ class GamesTableViewAdapter: NSObject {
       
       setupTableView()
     }
+}
 
+// MARK: Setup Functions
+extension GamesTableViewAdapter {
     private func setupTableView() {
       tableView?.registerCells([GamesCell.self])
       tableView?.delegate = self
       tableView?.dataSource = self
     }
-    
+
     func setTableView(games: [GamesResult]) {
         self.games = games
         tableView?.reloadData()
     }
 }
-
+// MARK: - TableView Functions
 extension GamesTableViewAdapter: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.navigationDelegate?.navigateDetail(games: self.games[indexPath.row])

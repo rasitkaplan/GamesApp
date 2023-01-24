@@ -8,52 +8,40 @@
 import UIKit
 
 class FavoriteListViewController: UIViewController {
+    // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
+    
+    // MARK: - Variables
     private let viewModel = FavoriteListViewModel()
     var favoriteList: [GamesEntity]?
+    private var tableAdapter: FavoritesTableViewAdapter!
+
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        print("Favorite DidLoad")
+        self.title = "Favorites"
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         bindFavorite()
+        setupTableView()
         viewModel.didViewLoad()
     }
-    
+}
+
+// MARK: - Bind and Setup
+extension FavoriteListViewController {
     private func bindFavorite() {
         viewModel.reloadDelegate = self
     }
 
-}
-
-extension FavoriteListViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return favoriteList?.count ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = favoriteList?[indexPath.row].name ?? ""
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if (editingStyle == .delete) {
-        }
+    func setupTableView() {
+        tableAdapter = .init(tableView: tableView, viewModel: viewModel)
     }
 }
-
 extension FavoriteListViewController: ReloadFavoriteProtocol {
-    func reloadFavorite(games: [GamesEntity]) {
-        self.favoriteList = games
-        self.tableView.reloadData()
+    func reloadFavorite(favorites: [GamesEntity]) {
+        tableAdapter.setTableView(favoriteList: favorites)
     }
 }

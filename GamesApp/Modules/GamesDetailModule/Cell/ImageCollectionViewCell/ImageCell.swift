@@ -9,12 +9,15 @@ import UIKit
 import Kingfisher
 class ImageCell: UICollectionViewCell {
 
-    @IBOutlet weak var gameImageView: UIImageView!
+    // MARK: - Outlets
+    @IBOutlet private weak var gameImageView: UIImageView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         gameImageView.layer.cornerRadius = 8
     }
-    
+
+    // MARK: - SetCell
     func setCell(url: String) {
         gameImageView.kf.setImage(with: URL(string: url))
     }

@@ -25,4 +25,5 @@ class NetworkHelper {
     static let shared = NetworkHelper()
     
     let gamesURL = "https://api.rawg.io/api/games"
+    let apiKey = "3fb74f844d8a4b4d997fc93f9e849fec"
 }

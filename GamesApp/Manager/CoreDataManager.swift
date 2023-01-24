@@ -12,6 +12,7 @@ import CoreData
 class CoreDataManager {
     static let shared = CoreDataManager()
 
+    // MARK: - Add Favorite To Cache
     func addFavorite(model: GamesResult) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
 
@@ -30,7 +31,7 @@ class CoreDataManager {
                 game.setValue(model.name ?? "", forKey: "name")
               do {
                 try context.save()
-                  NotificationManager.shared.createNotfications(name: model.name ?? "")
+                  NotificationManager.shared.createNotfications(name: model.name ?? "", title: "Added Favorites")
               } catch {
                 print("ERROR while saving data to CoreData")
               }
@@ -38,7 +39,7 @@ class CoreDataManager {
         } catch {
         }
     }
-
+    // MARK: - Get Favorite From Cache
     func retrieveFromCoreData(completion: @escaping (Result<[GamesEntity], Error>) -> Void) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
       let context = appDelegate.persistentContainer.viewContext
@@ -53,7 +54,7 @@ class CoreDataManager {
           completion(.failure(DatabaseError.failedToFetchData))
       }
     }
-    
+    // MARK: - Delete Favorite From Cache
     func deleteFavorites(game: GamesResult) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
         let context = appDelegate.persistentContainer.viewContext
@@ -73,7 +74,7 @@ class CoreDataManager {
         } catch {
         }
     }
-    
+    // MARK: - Add Note To Cache
     func addNote(id: Int, comment: String, star: Int64, gameName: String) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
 
@@ -87,8 +88,7 @@ class CoreDataManager {
                 game.setValue(gameName, forKey: "gameName")
               do {
                 try context.save()
-                  debugPrint("Kayded'ld'")
-//                  NotificationManager.shared.createNotfications(name: model.name ?? "")
+                  NotificationManager.shared.createNotfications(name: gameName, title: "Note Added")
               } catch {
                 print("ERROR while saving data to CoreData")
               }
@@ -96,7 +96,8 @@ class CoreDataManager {
         } catch {
         }
     }
-    
+
+    // MARK: - Get Notes From Cache
     func getNotes(completion: @escaping (Result<[NoteEntity], Error>) -> Void) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
       let context = appDelegate.persistentContainer.viewContext

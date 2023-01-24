@@ -6,6 +6,7 @@
 //
 
 import Foundation
+// MARK: - View State Enum
 enum ViewState {
     case idle
     case loading

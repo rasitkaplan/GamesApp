@@ -9,14 +9,16 @@ import UIKit
 import Cosmos
 class NoteCell: UITableViewCell {
 
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var commentLabel: UILabel!
-    @IBOutlet weak var starView: CosmosView!
+    // MARK: -  Outlets
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var commentLabel: UILabel!
+    @IBOutlet private weak var starView: CosmosView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
+    // MARK: - Set Cell
     func setCell(notes: NoteEntity) {
         commentLabel.text = notes.comment ?? ""
         starView.rating = Double(notes.star)

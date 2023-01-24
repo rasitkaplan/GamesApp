@@ -11,9 +11,9 @@ class NotificationManager: NSObject {
     static let shared = NotificationManager()
     let center = UNUserNotificationCenter.current()
 
-    func createNotfications(name: String) {
+    func createNotfications(name: String, title: String) {
         let content = UNMutableNotificationContent()
-        content.title = "Added to favorites"
+        content.title = title
         content.body = name
         content.sound = UNNotificationSound.default
         

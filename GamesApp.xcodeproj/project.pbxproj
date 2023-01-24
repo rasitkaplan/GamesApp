@@ -31,6 +31,15 @@
 		6C1FE41F297DA4A1005D416B /* NoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C1FE41D297DA4A1005D416B /* NoteCell.xib */; };
 		6C1FE420297DA4A1005D416B /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1FE41E297DA4A1005D416B /* NoteCell.swift */; };
 		6C1FE422297DAE15005D416B /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1FE421297DAE15005D416B /* UIViewController+Extensions.swift */; };
+		6C56765D297E73CF0088859A /* AllNotesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C56765B297E73CF0088859A /* AllNotesViewController.xib */; };
+		6C56765E297E73CF0088859A /* AllNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C56765C297E73CF0088859A /* AllNotesViewController.swift */; };
+		6C567661297E74F10088859A /* AllNotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C567660297E74F10088859A /* AllNotesViewModel.swift */; };
+		6C567664297E755F0088859A /* AllNotesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C567663297E755F0088859A /* AllNotesModel.swift */; };
+		6C56766A297EB55D0088859A /* FavoritesTableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C567669297EB55D0088859A /* FavoritesTableViewAdapter.swift */; };
+		6C56766D297FFF100088859A /* NoteTableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C56766C297FFF100088859A /* NoteTableViewAdapter.swift */; };
+		6C567670298003C70088859A /* AllNotesTableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C56766F298003C70088859A /* AllNotesTableViewAdapter.swift */; };
+		6C5676732980094D0088859A /* AddNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5676722980094D0088859A /* AddNoteViewModel.swift */; };
+		6C567676298009A40088859A /* AddNoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C567675298009A40088859A /* AddNoteModel.swift */; };
 		6C5BCE2429734AF400B71BEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BCE2329734AF400B71BEC /* AppDelegate.swift */; };
 		6C5BCE2829734AF400B71BEC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BCE2729734AF400B71BEC /* ViewController.swift */; };
 		6C5BCE2B29734AF400B71BEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C5BCE2929734AF400B71BEC /* Main.storyboard */; };
@@ -83,6 +92,15 @@
 		6C1FE41D297DA4A1005D416B /* NoteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteCell.xib; sourceTree = "<group>"; };
 		6C1FE41E297DA4A1005D416B /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		6C1FE421297DAE15005D416B /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		6C56765B297E73CF0088859A /* AllNotesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllNotesViewController.xib; sourceTree = "<group>"; };
+		6C56765C297E73CF0088859A /* AllNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNotesViewController.swift; sourceTree = "<group>"; };
+		6C567660297E74F10088859A /* AllNotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNotesViewModel.swift; sourceTree = "<group>"; };
+		6C567663297E755F0088859A /* AllNotesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNotesModel.swift; sourceTree = "<group>"; };
+		6C567669297EB55D0088859A /* FavoritesTableViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewAdapter.swift; sourceTree = "<group>"; };
+		6C56766C297FFF100088859A /* NoteTableViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewAdapter.swift; sourceTree = "<group>"; };
+		6C56766F298003C70088859A /* AllNotesTableViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNotesTableViewAdapter.swift; sourceTree = "<group>"; };
+		6C5676722980094D0088859A /* AddNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewModel.swift; sourceTree = "<group>"; };
+		6C567675298009A40088859A /* AddNoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteModel.swift; sourceTree = "<group>"; };
 		6C5BCE2029734AF400B71BEC /* GamesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GamesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C5BCE2329734AF400B71BEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C5BCE2729734AF400B71BEC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -195,6 +213,7 @@
 		6C0946202976E07B007BCB8F /* FavoriteListModule */ = {
 			isa = PBXGroup;
 			children = (
+				6C567668297EB53B0088859A /* Adapter */,
 				6C0946292976E5DE007BCB8F /* Model */,
 				6C0946262976E5A9007BCB8F /* ViewModel */,
 				6C0946212976E084007BCB8F /* ViewController */,
@@ -230,6 +249,8 @@
 		6C09462E297D859F007BCB8F /* AddNoteModule */ = {
 			isa = PBXGroup;
 			children = (
+				6C5676742980099A0088859A /* Model */,
+				6C567671298009440088859A /* ViewModel */,
 				6C09462F297D85A7007BCB8F /* ViewController */,
 			);
 			path = AddNoteModule;
@@ -247,6 +268,7 @@
 		6C094634297D9B19007BCB8F /* NoteModule */ = {
 			isa = PBXGroup;
 			children = (
+				6C56766B297FFF020088859A /* Adapter */,
 				6C1FE41C297DA488005D416B /* Cell */,
 				6C09463B297D9F18007BCB8F /* Model */,
 				6C09463A297D9F06007BCB8F /* ViewModel */,
@@ -307,6 +329,82 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		6C567659297E734A0088859A /* AllNotesModule */ = {
+			isa = PBXGroup;
+			children = (
+				6C56766E298003BC0088859A /* Adapter */,
+				6C567662297E754F0088859A /* Model */,
+				6C56765F297E74DC0088859A /* ViewModel */,
+				6C56765A297E73B10088859A /* ViewController */,
+			);
+			path = AllNotesModule;
+			sourceTree = "<group>";
+		};
+		6C56765A297E73B10088859A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6C56765B297E73CF0088859A /* AllNotesViewController.xib */,
+				6C56765C297E73CF0088859A /* AllNotesViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		6C56765F297E74DC0088859A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6C567660297E74F10088859A /* AllNotesViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6C567662297E754F0088859A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6C567663297E755F0088859A /* AllNotesModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6C567668297EB53B0088859A /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				6C567669297EB55D0088859A /* FavoritesTableViewAdapter.swift */,
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
+		6C56766B297FFF020088859A /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				6C56766C297FFF100088859A /* NoteTableViewAdapter.swift */,
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
+		6C56766E298003BC0088859A /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				6C56766F298003C70088859A /* AllNotesTableViewAdapter.swift */,
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
+		6C567671298009440088859A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6C5676722980094D0088859A /* AddNoteViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6C5676742980099A0088859A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6C567675298009A40088859A /* AddNoteModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		6C5BCE1729734AF400B71BEC = {
 			isa = PBXGroup;
 			children = (
@@ -347,6 +445,7 @@
 		6C5BCE3A29734C0100B71BEC /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				6C567659297E734A0088859A /* AllNotesModule */,
 				6C094634297D9B19007BCB8F /* NoteModule */,
 				6C09462E297D859F007BCB8F /* AddNoteModule */,
 				6C0946202976E07B007BCB8F /* FavoriteListModule */,
@@ -382,7 +481,6 @@
 				6C5BCE612973656600B71BEC /* Adapter */,
 				6C5BCE5029735EE900B71BEC /* ViewController */,
 				6C5BCE5129735EEE00B71BEC /* ViewModel */,
-				6C5BCE5229735EF400B71BEC /* View */,
 				6C5BCE5329735EF900B71BEC /* Cell */,
 				6C5BCE5429735F0000B71BEC /* Model */,
 			);
@@ -404,13 +502,6 @@
 				6C5BCE64297365B200B71BEC /* GamesViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		6C5BCE5229735EF400B71BEC /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		6C5BCE5329735EF900B71BEC /* Cell */ = {
@@ -557,6 +648,7 @@
 				6CA04A7F29748FB200E3B89C /* GamesDetailViewController.xib in Resources */,
 				6C5BCE2B29734AF400B71BEC /* Main.storyboard in Resources */,
 				6C094613297545DE007BCB8F /* ImageCell.xib in Resources */,
+				6C56765D297E73CF0088859A /* AllNotesViewController.xib in Resources */,
 				6C094638297D9EA7007BCB8F /* NotesViewController.xib in Resources */,
 				6C5BCE4D29735DC500B71BEC /* SplashViewController.xib in Resources */,
 				6C0946242976E09A007BCB8F /* FavoriteListViewController.xib in Resources */,
@@ -626,23 +718,31 @@
 				6C5BCE602973650C00B71BEC /* UITableView+Extension.swift in Sources */,
 				6C5BCE2829734AF400B71BEC /* ViewController.swift in Sources */,
 				6C094633297D85B6007BCB8F /* AddNoteViewController.swift in Sources */,
+				6C567670298003C70088859A /* AllNotesTableViewAdapter.swift in Sources */,
 				6CA04A7429748AB200E3B89C /* GamesCellModel.swift in Sources */,
 				6C094614297545DE007BCB8F /* ImageCell.swift in Sources */,
 				6C09463D297D9F21007BCB8F /* NotesModel.swift in Sources */,
 				6C09460F297544DA007BCB8F /* GamesDetailCollectionViewAdapter.swift in Sources */,
+				6C56766D297FFF100088859A /* NoteTableViewAdapter.swift in Sources */,
 				6C1626D429746FCF00CFFE4B /* ViewState.swift in Sources */,
+				6C5676732980094D0088859A /* AddNoteViewModel.swift in Sources */,
 				6C1FE420297DA4A1005D416B /* NoteCell.swift in Sources */,
 				6C5BCE5C297364B200B71BEC /* NSObject+Extension.swift in Sources */,
 				6C5BCE65297365B200B71BEC /* GamesViewModel.swift in Sources */,
 				6C5BCE632973657F00B71BEC /* GamesTableViewAdapter.swift in Sources */,
+				6C56765E297E73CF0088859A /* AllNotesViewController.swift in Sources */,
 				6C0946282976E5B9007BCB8F /* FavoriteListViewModel.swift in Sources */,
 				6C09461629754C98007BCB8F /* NotificationManager.swift in Sources */,
+				6C56766A297EB55D0088859A /* FavoritesTableViewAdapter.swift in Sources */,
 				6C5BCE6B29736C5000B71BEC /* GamesModel.swift in Sources */,
 				6C09460429753E32007BCB8F /* GamesDetailViewModel.swift in Sources */,
 				6C5BCE692973668600B71BEC /* GamesCell.swift in Sources */,
+				6C567661297E74F10088859A /* AllNotesViewModel.swift in Sources */,
 				6C5BCE2429734AF400B71BEC /* AppDelegate.swift in Sources */,
+				6C567664297E755F0088859A /* AllNotesModel.swift in Sources */,
 				6C09461F2976E030007BCB8F /* TabBarController.swift in Sources */,
 				6C5BCE4E29735DC500B71BEC /* SplashViewController.swift in Sources */,
+				6C567676298009A40088859A /* AddNoteModel.swift in Sources */,
 				6C094639297D9EA7007BCB8F /* NotesViewController.swift in Sources */,
 				6C5BCE4229734F3A00B71BEC /* NetworkHelper.swift in Sources */,
 				6C09463F297D9F8E007BCB8F /* NotesViewModel.swift in Sources */,

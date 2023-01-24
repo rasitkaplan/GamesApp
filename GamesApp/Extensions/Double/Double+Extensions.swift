@@ -7,6 +7,7 @@
 
 import Foundation
 extension Double {
+    // MARK: - Convert Double to String
    var toString: String {
       return NSNumber(value: self).stringValue
    }
