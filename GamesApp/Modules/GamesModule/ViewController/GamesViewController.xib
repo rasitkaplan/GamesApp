@@ -80,7 +80,7 @@
                 </toolbar>
                 <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FZW-pO-RvA">
                     <rect key="frame" x="0.0" y="761" width="390" height="0.0"/>
-                    <color key="backgroundColor" systemColor="labelColor"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" id="cXD-qr-ymN"/>
                     </constraints>
@@ -113,9 +113,6 @@
     </objects>
     <resources>
         <image name="filterIcon" width="20" height="20"/>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
